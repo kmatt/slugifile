@@ -69,10 +69,7 @@ go test -v ./pkg/file
 Direct usage
 
 ```bash
-go run main.go "path/to/file"
-go run main.go "/Users/ewilan/Workspace/renamer-cli/misc/file/La Quête d'Ewilan vol.1 D'un monde à l'autre.md"
-go run main.go "/Users/ewilan/Workspace/renamer-cli/misc/file"
-go run main.go /Users/ewilan/Downloads/renamer
+go run main.go "path/to/dir"
 ```
 
 ## License
