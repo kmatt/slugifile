@@ -75,5 +75,9 @@ go run main.go "/Users/ewilan/Workspace/renamer-cli/misc/file"
 go run main.go /Users/ewilan/Downloads/renamer
 ```
 
+## License
+
+[MIT](LICENSE) © Ewilan Rivière
+
 [go-version-src]: https://img.shields.io/static/v1?style=flat-square&label=Go&message=v1.21&color=00ADD8&logo=go&logoColor=ffffff&labelColor=18181b
 [go-version-href]: https://go.dev/
