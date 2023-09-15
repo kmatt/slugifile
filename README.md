@@ -1,8 +1,38 @@
-# Notifier
+# Slugifier
 
 [![go][go-version-src]][go-version-href]
 
+A small tool, written in Go, to slugify files and directories.
+
 ## Install
+
+```bash
+go install github.com/ewilan-riviere/slugifier-cli@latest
+```
+
+## Usage
+
+For a directory
+
+```bash
+slugifier path/to/dir
+```
+
+Or for a file
+
+```bash
+slugifier path/to/file
+```
+
+### Options
+
+Verbose mode to enable preview and confirmation before renaming.
+
+```bash
+slugifier -v path/to/dir
+```
+
+## Build
 
 Build the script.
 
