@@ -45,7 +45,7 @@ func Scan(path string) File {
 	if !f.IsDir && f.SlugPath != f.Path {
 		// var i = 1
 		// Check if the new file path already exists
-		fmt.Println("File already exists:", f.SlugPath)
+		// fmt.Println("File already exists:", f.SlugPath)
 		// for isFileExists(f.SlugPath) {
 		// f.Slug = f.Slug + "-" + fmt.Sprintf("%d", i)
 		// f.SlugBasename = f.Slug + "." + f.Extension
