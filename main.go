@@ -4,9 +4,10 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"slugifier/pkg/renamer"
-	"slugifier/pkg/utils"
 	"strings"
+
+	"github.com/ewilan-riviere/slugifier-cli/pkg/renamer"
+	"github.com/ewilan-riviere/slugifier-cli/pkg/utils"
 )
 
 func main() {

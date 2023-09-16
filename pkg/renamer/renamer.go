@@ -3,9 +3,10 @@ package renamer
 import (
 	"fmt"
 	"os"
-	"slugifier/pkg/file"
-	"slugifier/pkg/listing"
 	"strconv"
+
+	"github.com/ewilan-riviere/slugifier-cli/pkg/file"
+	"github.com/ewilan-riviere/slugifier-cli/pkg/listing"
 )
 
 func Preview(filePath string, verbose bool) int {

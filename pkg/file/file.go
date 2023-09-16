@@ -3,8 +3,9 @@ package file
 import (
 	"fmt"
 	"os"
-	"slugifier/pkg/slugify"
 	"strings"
+
+	"github.com/ewilan-riviere/slugifier-cli/pkg/slugify"
 )
 
 type File struct {

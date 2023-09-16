@@ -1,8 +1,10 @@
-# Slugifier
+# slugifier-cli
 
 [![go][go-version-src]][go-version-href]
 
-A small tool, written in Go, to slugify files and directories.
+A small tool, written in Go, to slugify files and directories, recursively.
+
+Example: `La Quête d'Ewilan vol.1 : D'un monde à l'autre ·/_,:; (1), [Bottero, Pierre]Author @{1} <book> ?!//&` becomes `la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre._.1.bottero.pierre.author.1.book`
 
 ## Install
 
