@@ -1,7 +1,6 @@
 package slugify
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -39,11 +38,9 @@ func TestSlugify(t *testing.T) {
 
 	for _, set := range sets {
 		var slug = Slugify(set.From)
-		fmt.Println(slug)
 
 		if slug != set.To {
 			t.Error("Expected " + set.To + " got " + slug)
 		}
 	}
-
 }
