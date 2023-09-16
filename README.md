@@ -4,6 +4,8 @@
 
 A small tool, written in Go, to slugify files and directories, recursively.
 
+Files and directories are renamed to their slugified version. If the slugified version already exists, skip the file or directory.
+
 ## About
 
 This CLI use [github.com/mozillazg/go-unidecode](https://github.com/mozillazg/go-unidecode) to transform unicode characters to their closest ASCII representation. After that, some treatments are applied to the string to make it more readable.
