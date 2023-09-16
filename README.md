@@ -4,7 +4,21 @@
 
 A small tool, written in Go, to slugify files and directories, recursively.
 
-Example: `La Quête d'Ewilan vol.1 : D'un monde à l'autre ·/_,:; (1), [Bottero, Pierre]Author @{1} <book> ?!//&` becomes `la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre._.1.bottero.pierre.author.1.book`
+## About
+
+This CLI use [github.com/mozillazg/go-unidecode](https://github.com/mozillazg/go-unidecode) to transform unicode characters to their closest ASCII representation. After that, some treatments are applied to the string to make it more readable.
+
+- Remove all special characters
+- Replace all spaces with a dot
+- Remove all dots at the beginning and the end of the string
+- Replace all dots that are repeated more than once with a single dot
+- Keep `-` and `_` characters (and remove spaces before and after them)
+
+Examples
+
+- `La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&` to `la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre-._.1.bottero.pierre.author.1.book`
+- `00 - Préface` to `00-preface`
+- `Góðan daginn` to `godan.daginn`
 
 ## Install
 
