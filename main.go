@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ewilan-riviere/slugifier-cli/pkg/renamer"
-	"github.com/ewilan-riviere/slugifier-cli/pkg/utils"
+	"github.com/ewilan-riviere/slugifier/pkg/renamer"
+	"github.com/ewilan-riviere/slugifier/pkg/utils"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	flag.BoolVar(&showHelp, "h", false, "Display help message")
 	flag.BoolVar(&verbose, "v", false, "Verbose mode")
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "Welcome to slugifier-cli!")
+		fmt.Fprintf(os.Stderr, "Welcome to slugifier!")
 		fmt.Fprintln(os.Stderr, "")
 		fmt.Fprintf(os.Stderr, "Example: `slugifier path/to/file` or `slugifier path/to/directory`")
 		// fmt.Fprintf(os.Stderr, "Usage: %s [OPTIONS] MESSAGE\n", os.Args[0])

@@ -5,8 +5,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ewilan-riviere/slugifier-cli/pkg/file"
-	"github.com/ewilan-riviere/slugifier-cli/pkg/listing"
+	"github.com/ewilan-riviere/slugifier/pkg/file"
+	"github.com/ewilan-riviere/slugifier/pkg/listing"
 )
 
 func Preview(filePath string, verbose bool) int {
