@@ -23,7 +23,7 @@ Examples
 ## Install
 
 ```bash
-go install github.com/ewilan-riviere/slugifier@latest
+go install github.com/ewilan-riviere/slugifier@v0.0.12
 ```
 
 ## Usage
