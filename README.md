@@ -1,4 +1,4 @@
-# slugifier-cli
+# slugifier
 
 [![go][go-version-src]][go-version-href]
 
@@ -9,7 +9,7 @@ Example: `La Quête d'Ewilan vol.1 : D'un monde à l'autre ·/_,:; (1), [Bottero
 ## Install
 
 ```bash
-go install github.com/ewilan-riviere/slugifier-cli@latest
+go install github.com/ewilan-riviere/slugifier@latest
 ```
 
 ## Usage
