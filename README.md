@@ -15,12 +15,13 @@ This CLI use [github.com/mozillazg/go-unidecode](https://github.com/mozillazg/go
 - Remove all dots at the beginning and the end of the string
 - Replace all dots that are repeated more than once with a single dot
 - Keep `-` and `_` characters (and remove spaces before and after them)
+- Full lowercase with option `-l`
 
 Examples
 
-- `La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&` to `la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre-._.1.bottero.pierre.author.1.book`
-- `00 - Préface` to `00-preface`
-- `Góðan daginn` to `godan.daginn`
+- `La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&` to `la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre-._.1.bottero.pierre.author.1.book` with lowercase
+- `00 - Préface` to `00-Preface`
+- `Góðan daginn` to `Godan.Daginn`
 
 ## Install
 
@@ -43,6 +44,12 @@ slugifier path/to/file
 ```
 
 ### Options
+
+Lowercase mode to transform all characters to lowercase.
+
+```bash
+slugifier -l path/to/dir
+```
 
 Verbose mode to enable preview and confirmation before renaming.
 

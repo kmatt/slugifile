@@ -20,7 +20,7 @@ type File struct {
 	IsDir        bool
 }
 
-func Scan(path string) File {
+func Scan(path string, lowercase bool) File {
 	var f = File{
 		Path: path,
 	}
@@ -32,7 +32,7 @@ func Scan(path string) File {
 	f.FileName = f.setFileName()
 	f.BasePath = f.setBasePath()
 	f.IsExists = isFileExists(f.Path)
-	f.Slug = slugify.Slugify(f.FileName)
+	f.Slug = slugify.Slugify(f.FileName, lowercase)
 
 	if f.IsDir {
 		f.SlugBasename = f.Slug

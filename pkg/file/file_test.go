@@ -17,7 +17,7 @@ func TestFile(t *testing.T) {
 		log.Fatal(e)
 	}
 
-	var f = Scan(path)
+	var f = Scan(path, true)
 	f.RenameAsSlug(true)
 
 	equalsTo(f.BasePath, prefix, t)

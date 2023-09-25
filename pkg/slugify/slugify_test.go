@@ -37,10 +37,15 @@ func TestSlugify(t *testing.T) {
 	}
 
 	for _, set := range sets {
-		var slug = Slugify(set.From)
+		var slug = Slugify(set.From, true)
 
 		if slug != set.To {
 			t.Error("Expected " + set.To + " got " + slug)
 		}
+	}
+
+	var slug = Slugify("Book - Author", false)
+	if slug != "Book-Author" {
+		t.Error("Expected Book-Author got " + slug)
 	}
 }

@@ -11,10 +11,14 @@ import (
 )
 
 func main() {
-	var showHelp bool
+	var showHelp = false
 	var verbose = false
+	var lowercase = false
+
 	flag.BoolVar(&showHelp, "h", false, "Display help message")
 	flag.BoolVar(&verbose, "v", false, "Verbose mode")
+	flag.BoolVar(&lowercase, "l", false, "Lowercase mode")
+
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Welcome to slugifier!")
 		fmt.Fprintln(os.Stderr, "")
@@ -37,7 +41,10 @@ func main() {
 		return
 	}
 
-	var maxLevel = renamer.Preview(filePath, verbose)
+	var maxLevel = renamer.Preview(filePath, renamer.Options{
+		Verbose:   verbose,
+		Lowercase: lowercase,
+	})
 	if verbose {
 		var accept = utils.Confirm()
 
@@ -46,7 +53,7 @@ func main() {
 		}
 	}
 
-	renamer.Execute(filePath, maxLevel)
+	renamer.Execute(filePath, maxLevel, lowercase)
 	fmt.Println("Done!")
 }
 

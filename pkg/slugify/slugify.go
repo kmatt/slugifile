@@ -13,10 +13,12 @@ type Replacement struct {
 }
 
 // Slugify a string
-func Slugify(input string) string {
+func Slugify(input string, lowercase bool) string {
 	var seperator = "."
 	var slug = unidecode.Unidecode(input)
-	slug = strings.ToLower(slug)
+	if lowercase {
+		slug = strings.ToLower(slug)
+	}
 	slug = strings.TrimSpace(slug)
 
 	var sets = []Replacement{

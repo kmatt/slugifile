@@ -9,7 +9,12 @@ import (
 	"github.com/ewilan-riviere/slugifier/pkg/listing"
 )
 
-func Preview(filePath string, verbose bool) int {
+type Options struct {
+	Verbose   bool
+	Lowercase bool
+}
+
+func Preview(filePath string, options Options) int {
 	var maxLevel = 0
 	var isDirectory = isDir(filePath)
 
@@ -17,14 +22,14 @@ func Preview(filePath string, verbose bool) int {
 		var list = handleDirectory(HandleDirectoryParams{
 			FilePath: filePath,
 			Callback: func(f file.File, l listing.ListingFile) {
-				if verbose {
+				if options.Verbose {
 					fmt.Println("From " + "`" + f.FileName + "`")
 					var levelStr = strconv.FormatInt(int64(l.Level), 10)
 					fmt.Println("To " + "`" + f.SlugBasename + "`" + " (" + "L." + levelStr + ")")
 					fmt.Println("")
 				}
 			},
-		})
+		}, options.Lowercase)
 
 		for _, f := range list.Files {
 			if f.IsDir {
@@ -34,7 +39,7 @@ func Preview(filePath string, verbose bool) int {
 			}
 		}
 	} else {
-		var f = file.Scan(filePath)
+		var f = file.Scan(filePath, options.Lowercase)
 		fmt.Println("From " + "`" + f.FileName + "`")
 		fmt.Println("To " + "`" + f.SlugBasename + "`")
 		fmt.Println("")
@@ -43,14 +48,14 @@ func Preview(filePath string, verbose bool) int {
 	return maxLevel
 }
 
-func Execute(filePath string, level int) {
+func Execute(filePath string, level int, lowercase bool) {
 	var isDirectory = isDir(filePath)
 	var i = level
 
 	if isDirectory {
 		for i > 0 {
 			fmt.Println(i)
-			executeDirectory(filePath, i)
+			executeDirectory(filePath, i, lowercase)
 			i--
 		}
 
@@ -61,14 +66,14 @@ func Execute(filePath string, level int) {
 					f.RenameAsSlug(true)
 				}
 			},
-		})
+		}, lowercase)
 	} else {
-		var f = file.Scan(filePath)
+		var f = file.Scan(filePath, lowercase)
 		f.RenameAsSlug(true)
 	}
 }
 
-func executeDirectory(filePath string, level int) {
+func executeDirectory(filePath string, level int, lowercase bool) {
 	handleDirectory(HandleDirectoryParams{
 		FilePath: filePath,
 		Callback: func(f file.File, l listing.ListingFile) {
@@ -77,7 +82,7 @@ func executeDirectory(filePath string, level int) {
 			}
 		},
 		Level: level,
-	})
+	}, lowercase)
 }
 
 type HandleDirectoryCallback func(file.File, listing.ListingFile)
@@ -89,10 +94,10 @@ type HandleDirectoryParams struct {
 }
 
 // Handle if directory
-func handleDirectory(params HandleDirectoryParams) listing.Listing {
+func handleDirectory(params HandleDirectoryParams, lowercase bool) listing.Listing {
 	var list = listing.Scan(params.FilePath)
 	for _, f := range list.Files {
-		var fs = file.Scan(f.Path)
+		var fs = file.Scan(f.Path, lowercase)
 
 		if params.Level != 0 {
 			if f.Level == params.Level {
