@@ -1,3 +1,18 @@
+// Package notifier is a small tool to slugify files and directories, recursively.
+//
+// Examples/readme can be found on the GitHub page at https://github.com/ewilan-riviere/slugifier
+//
+// If you want to use it as CLI, you can install it with:
+//
+//	go install github.com/ewilan-riviere/slugifier
+//
+// Then you can use it like this:
+//
+//	slugifier path/to/dir
+//	slugifier path/to/file
+//
+// You can use `-l` flag to lowercase the slugified files and directories.
+// You can use `-v` flag to enable verbose mode.
 package main
 
 import (
