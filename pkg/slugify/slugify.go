@@ -24,8 +24,8 @@ func Slugify(input string, lowercase bool) string {
 	var sets = []Replacement{
 		{To: "-", From: regexp.MustCompile(" - ")},
 		{To: "_", From: regexp.MustCompile(" _ ")},
-		{To: seperator, From: regexp.MustCompile(`[^-\w\s]`)}, // Remove all special characters except -
-		{To: seperator, From: regexp.MustCompile(`[/^ /]`)},   // Replace all spaces with a dot
+		{To: seperator, From: regexp.MustCompile(`[^-\w\s{}]+`)}, // Remove all special characters except -
+		{To: seperator, From: regexp.MustCompile(`[/^ /]`)},      // Replace all spaces with a dot
 		{To: seperator, From: regexp.MustCompile("`")},
 		{To: seperator, From: regexp.MustCompile(`[\s]+`)}, // Replace all spaces with a seperator
 		{To: ".", From: regexp.MustCompile(`[.]+`)},        // Replace multiple dots with a single dot

@@ -11,13 +11,13 @@ func TestSlugify(t *testing.T) {
 	}
 
 	var sets = []Testing{
-		{From: "La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&", To: "la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre-._.1.bottero.pierre.author.1.book"},
+		{From: "La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&", To: "la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre-._.1.bottero.pierre.author.{1}.book"},
 		{From: "00 - Préface", To: "00-preface"},
 		{From: "00 _ Préface", To: "00_preface"},
 		{From: "Book - Author", To: "book-author"},
 		{From: "Book-Author", To: "book-author"},
 		{From: "Book..Author", To: "book.author"},
-		{From: "@!&^*()[]{}#%$£\":;.,<>|’«»“”‘’‹›''\\", To: "ps"},
+		{From: "@!&^*()[]{}#%$£\":;.,<>|’«»“”‘’‹›''\\", To: "{}.ps"},
 		{From: `""`, To: ""},
 		{From: "Здравствуйте", To: "zdravstvuite"},
 		{From: "Γεια σας", To: "geia.sas"},
