@@ -11,7 +11,7 @@ func TestSlugify(t *testing.T) {
 	}
 
 	var sets = []Testing{
-		{From: "La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&", To: "la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre-._.1.bottero.pierre.author.{1}.book"},
+		{From: "La Quête d'Ewilan vol.1 : D'un monde à l'autre-·/_,:; (1), [Bottero, Pierre]`Author` @{1} <book> ?!//&", To: "la.quete.dewilan.vol.1.dun.monde.a.lautre-._.1.bottero.pierre.author.{1}.book"},
 		{From: "00 - Préface", To: "00-preface"},
 		{From: "00 _ Préface", To: "00_preface"},
 		{From: "Book - Author", To: "book-author"},
@@ -34,6 +34,7 @@ func TestSlugify(t *testing.T) {
 		{From: "Ciao", To: "ciao"},
 		{From: "السلام عليكم", To: "lslm.lykm"},
 		{From: "Góðan daginn", To: "godan.daginn"},
+		{From: "Director's cut", To: "directors.cut"},
 	}
 
 	for _, set := range sets {

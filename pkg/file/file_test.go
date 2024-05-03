@@ -24,10 +24,10 @@ func TestFile(t *testing.T) {
 	equalsTo(f.Extension, "txt", t)
 	equalsTo(f.FileName, "La Quête d'Ewilan vol.1 D'un monde à l'autre", t)
 	equalsTo(strconv.FormatBool(f.IsExists), "true", t)
-	equalsTo(f.SlugPath, prefix+"/la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre.txt", t)
-	equalsTo(f.SlugBasename, "la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre.txt", t)
+	equalsTo(f.SlugPath, prefix+"/la.quete.dewilan.vol.1.dun.monde.a.lautre.txt", t)
+	equalsTo(f.SlugBasename, "la.quete.dewilan.vol.1.dun.monde.a.lautre.txt", t)
 	equalsTo(f.Path, prefix+"/La Quête d'Ewilan vol.1 D'un monde à l'autre.txt", t)
-	equalsTo(f.Slug, "la.quete.d.ewilan.vol.1.d.un.monde.a.l.autre", t)
+	equalsTo(f.Slug, "la.quete.dewilan.vol.1.dun.monde.a.lautre", t)
 
 	f.Rename(f.SlugPath, f.Path)
 

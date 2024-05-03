@@ -22,6 +22,7 @@ func Slugify(input string, lowercase bool) string {
 	slug = strings.TrimSpace(slug)
 
 	var sets = []Replacement{
+		{To: "", From: regexp.MustCompile("'")},
 		{To: "-", From: regexp.MustCompile(" - ")},
 		{To: "_", From: regexp.MustCompile(" _ ")},
 		{To: seperator, From: regexp.MustCompile(`[^-\w\s{}]+`)}, // Remove all special characters except -
