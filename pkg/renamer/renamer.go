@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/ewilan-riviere/slugifier/pkg/file"
 	"github.com/ewilan-riviere/slugifier/pkg/listing"
@@ -62,7 +63,8 @@ func Execute(filePath string, level int, lowercase bool) {
 		handleDirectory(HandleDirectoryParams{
 			FilePath: filePath,
 			Callback: func(f file.File, l listing.ListingFile) {
-				if !f.IsDir && f.FileName != "." && f.FileName != ".." && f.FileName != ".DS_Store" && f.FileName != ".git" && f.Path != filePath {
+				// Don't touch hidden files
+				if !f.IsDir && f.Path != filePath && !strings.HasPrefix(filePath, ".") {
 					f.RenameAsSlug(true)
 				}
 			},
