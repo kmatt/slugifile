@@ -1,7 +1,7 @@
 package file
 
 import (
-	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -34,11 +34,13 @@ func Scan(path string, lowercase bool) File {
 	f.IsExists = isFileExists(f.Path)
 	f.Slug = slugify.Slugify(f.FileName, lowercase)
 
+	f.SlugBasename = f.Slug
 	if f.IsDir {
-		f.SlugBasename = f.Slug
 		f.SlugPath = f.BasePath + "/" + f.SlugBasename
 	} else {
-		f.SlugBasename = f.Slug + "." + f.Extension
+		if f.Extension > "" {
+			f.SlugBasename = f.Slug + "." + f.Extension
+		}
 		f.SlugPath = f.BasePath + "/" + f.SlugBasename
 	}
 
@@ -60,7 +62,7 @@ func Scan(path string, lowercase bool) File {
 func (f File) Rename(path string, newPath string) {
 	err := os.Rename(path, newPath)
 	if err != nil {
-		fmt.Println("Error:", err)
+		log.Println("Error:", err)
 		return
 	}
 }
@@ -70,16 +72,18 @@ func (f File) RenameAsSlug(withError bool) {
 
 	if withError {
 		if err != nil {
-			fmt.Println("Error:", err)
+			log.Println("Error:", err)
 			return
 		}
 	}
 }
 
 func (f File) setExtension() string {
+	var extension = ""
 	var parts = strings.Split(f.Path, ".")
-	var extension = parts[len(parts)-1]
-
+	if len(parts) > 1 {
+		extension = parts[len(parts)-1]
+	}
 	return extension
 }
 
@@ -90,7 +94,9 @@ func (f File) setFileName() string {
 	if !f.IsDir {
 		// remove extension
 		var parts2 = strings.Split(fileName, ".")
-		fileName = strings.Join(parts2[:len(parts2)-1], ".")
+		if len(parts2) > 1 {
+			fileName = strings.Join(parts2[:len(parts2)-1], ".")
+		}
 	}
 
 	return fileName
@@ -109,7 +115,7 @@ func isFileExists(path string) bool {
 		if os.IsNotExist(err) {
 			return false
 		} else {
-			fmt.Println("Error:", err)
+			log.Println("Error:", err)
 			return false
 		}
 	}
@@ -122,7 +128,7 @@ func isDir(path string) bool {
 
 		fileInfo, err := os.Stat(path)
 		if err != nil {
-			fmt.Println("Error:", err)
+			log.Println("Error:", err)
 			return false
 		}
 

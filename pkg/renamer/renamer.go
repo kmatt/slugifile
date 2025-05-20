@@ -2,6 +2,7 @@ package renamer
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -24,9 +25,9 @@ func Preview(filePath string, options Options) int {
 			FilePath: filePath,
 			Callback: func(f file.File, l listing.ListingFile) {
 				if options.Verbose {
-					fmt.Println("From " + "`" + f.FileName + "`")
 					var levelStr = strconv.FormatInt(int64(l.Level), 10)
-					fmt.Println("To " + "`" + f.SlugBasename + "`" + " (" + "L." + levelStr + ")")
+					log.Println("From " + "`" + f.FileName + "`")
+					log.Println("To " + "`" + f.SlugBasename + "`" + " (" + "L." + levelStr + ")")
 					fmt.Println("")
 				}
 			},
@@ -41,8 +42,8 @@ func Preview(filePath string, options Options) int {
 		}
 	} else {
 		var f = file.Scan(filePath, options.Lowercase)
-		fmt.Println("From " + "`" + f.FileName + "`")
-		fmt.Println("To " + "`" + f.SlugBasename + "`")
+		log.Println("From " + "`" + f.FileName + "`")
+		log.Println("To " + "`" + f.SlugBasename + "`")
 		fmt.Println("")
 	}
 
@@ -55,7 +56,6 @@ func Execute(filePath string, level int, lowercase bool) {
 
 	if isDirectory {
 		for i > 0 {
-			fmt.Println(i)
 			executeDirectory(filePath, i, lowercase)
 			i--
 		}
@@ -64,7 +64,7 @@ func Execute(filePath string, level int, lowercase bool) {
 			FilePath: filePath,
 			Callback: func(f file.File, l listing.ListingFile) {
 				// Don't touch hidden files
-				if !f.IsDir && f.Path != filePath && !strings.HasPrefix(filePath, ".") {
+				if !f.IsDir && !strings.HasPrefix(f.FileName, ".") && f.Path != filePath {
 					f.RenameAsSlug(true)
 				}
 			},
@@ -79,7 +79,7 @@ func executeDirectory(filePath string, level int, lowercase bool) {
 	handleDirectory(HandleDirectoryParams{
 		FilePath: filePath,
 		Callback: func(f file.File, l listing.ListingFile) {
-			if f.IsDir && f.FileName != "." && f.FileName != ".." && f.FileName != ".DS_Store" && f.FileName != ".git" && f.Path != filePath {
+			if f.IsDir && !strings.HasPrefix(f.FileName, ".") && f.Path != filePath {
 				f.RenameAsSlug(false)
 			}
 		},
@@ -117,7 +117,7 @@ func handleDirectory(params HandleDirectoryParams, lowercase bool) listing.Listi
 func isDir(path string) bool {
 	fileInfo, err := os.Stat(path)
 	if err != nil {
-		fmt.Println("Error:", err)
+		log.Println("Error:", err)
 		return false
 	}
 
