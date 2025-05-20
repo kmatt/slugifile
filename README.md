@@ -1,8 +1,10 @@
-# slugifier
+# slugifile
 
 [![go][go-version-src]][go-version-href]
 [![tests][tests-src]][tests-href]
 [![license][license-src]][license-href]
+
+Forked from https://github.com/ewilan-riviere/slugifier
 
 A small tool, written in Go, to slugify files and directories, recursively.
 
@@ -28,7 +30,7 @@ Examples
 ## Install
 
 ```bash
-go install github.com/ewilan-riviere/slugifier@latest
+go install github.com/kmatt/slugifile@latest
 ```
 
 ## Usage
@@ -102,10 +104,3 @@ go run main.go "path/to/dir"
 ## License
 
 [MIT](LICENSE) © Ewilan Rivière
-
-[go-version-src]: https://img.shields.io/static/v1?style=flat&label=Go&message=v1.21&color=00ADD8&logo=go&logoColor=ffffff&labelColor=18181b
-[go-version-href]: https://go.dev/
-[tests-src]: https://img.shields.io/github/actions/workflow/status/ewilan-riviere/slugifier/run-tests.yml?branch=main&label=tests&style=flat&colorA=18181B
-[tests-href]: https://packagist.org/packages/ewilan-riviere/slugifier
-[license-src]: https://img.shields.io/github/license/ewilan-riviere/slugifier.svg?style=flat&colorA=18181B&colorB=00ADD8
-[license-href]: https://github.com/ewilan-riviere/slugifier/blob/main/LICENSE
