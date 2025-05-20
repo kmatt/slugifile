@@ -1,4 +1,4 @@
-module github.com/ewilan-riviere/slugifier
+module github.com/kmatt/slugifier
 
 go 1.21
 

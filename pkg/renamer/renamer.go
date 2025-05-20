@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ewilan-riviere/slugifier/pkg/file"
-	"github.com/ewilan-riviere/slugifier/pkg/listing"
+	"github.com/kmatt/slugifier/pkg/file"
+	"github.com/kmatt/slugifier/pkg/listing"
 )
 
 type Options struct {

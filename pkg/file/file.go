@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ewilan-riviere/slugifier/pkg/slugify"
+	"github.com/kmatt/slugifier/pkg/slugify"
 )
 
 type File struct {
