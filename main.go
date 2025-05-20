@@ -21,10 +21,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ewilan-riviere/slugifier/pkg/renamer"
-	"github.com/ewilan-riviere/slugifier/pkg/utils"
+	"github.com/kmatt/slugifier/pkg/renamer"
+	"github.com/kmatt/slugifier/pkg/slugify"
+	"github.com/kmatt/slugifier/pkg/utils"
 )
-
 
 // Get the file path from the command-line arguments
 func getPath() string {
@@ -59,10 +59,12 @@ func main() {
 	var showHelp = false
 	var verbose = false
 	var lowercase = false
+	var text = ""
 
 	flag.BoolVar(&showHelp, "h", false, "Display help message")
 	flag.BoolVar(&verbose, "v", false, "Verbose mode")
 	flag.BoolVar(&lowercase, "l", false, "Lowercase mode")
+	flag.StringVar(&text, "t", "", "Slugify text and exit")
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage: %s [OPTIONS] path/to/file-or-directory\n", os.Args[0])
@@ -77,10 +79,15 @@ func main() {
 		return
 	}
 
+	if text != "" {
+		fmt.Println(slugify.Slugify(text, lowercase))
+		return
+	}
+
 	var filePath = getPath()
 
 	if filePath == "" {
-		fmt.Println("No file path provided.")
+		fmt.Println("No file path provided")
 		return
 	}
 
@@ -97,5 +104,5 @@ func main() {
 	}
 
 	renamer.Execute(filePath, maxLevel, lowercase)
-	fmt.Println("Done!")
+	fmt.Println("Done")
 }
