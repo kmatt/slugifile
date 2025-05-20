@@ -1,7 +1,6 @@
 package listing
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -49,7 +48,7 @@ func Scan(directory string) Listing {
 		return nil
 	})
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 
 	l.Count = len(l.Files)
@@ -60,7 +59,7 @@ func Scan(directory string) Listing {
 func (l Listing) toFile(path string, isDir bool) ListingFile {
 	absolutePath, err := filepath.Abs(path)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 
 	var f = ListingFile{

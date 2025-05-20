@@ -18,6 +18,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -47,7 +48,7 @@ func getPath() string {
 		if os.IsNotExist(err) {
 			fmt.Printf("File '%s' does not exist.\n", filePath)
 		} else {
-			fmt.Println("Error:", err)
+			log.Println("Error:", err)
 		}
 		return ""
 	}
@@ -56,6 +57,9 @@ func getPath() string {
 }
 
 func main() {
+
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
 	var showHelp = false
 	var verbose = false
 	var lowercase = false
@@ -87,7 +91,7 @@ func main() {
 	var filePath = getPath()
 
 	if filePath == "" {
-		fmt.Println("No file path provided")
+		log.Println("No file path provided")
 		return
 	}
 
