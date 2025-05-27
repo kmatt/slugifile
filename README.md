@@ -1,9 +1,5 @@
 # slugifile
 
-[![go][go-version-src]][go-version-href]
-[![tests][tests-src]][tests-href]
-[![license][license-src]][license-href]
-
 Forked from https://github.com/ewilan-riviere/slugifile
 
 A small tool, written in Go, to slugify files and directories, recursively.
