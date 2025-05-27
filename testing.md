@@ -1,7 +1,7 @@
 # Testing
 
 ```bash
-go build -o slugifier && ./slugifier
+go build -o slugifile && ./slugifile
 ```
 
 ```bash
@@ -13,4 +13,4 @@ git tag v1.0.2
 git push origin v1.0.2
 ```
 
-Click on "Request" on <https://pkg.go.dev/github.com/ewilan-riviere/slugifier@v1.0.2>
+Click on "Request" on <https://pkg.go.dev/github.com/ewilan-riviere/slugifile@v1.0.2>

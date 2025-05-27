@@ -1,15 +1,15 @@
 // Package notifier is a small tool to slugify files and directories, recursively.
 //
-// Examples/readme can be found on the GitHub page at https://github.com/ewilan-riviere/slugifier
+// Examples/readme can be found on the GitHub page at https://github.com/ewilan-riviere/slugifile
 //
 // If you want to use it as CLI, you can install it with:
 //
-//	go install github.com/ewilan-riviere/slugifier
+//	go install github.com/ewilan-riviere/slugifile
 //
 // Then you can use it like this:
 //
-//	slugifier path/to/dir
-//	slugifier path/to/file
+//	slugifile path/to/dir
+//	slugifile path/to/file
 //
 // You can use `-l` flag to lowercase the slugified files and directories.
 // You can use `-v` flag to enable verbose mode.
@@ -22,16 +22,16 @@ import (
 	"os"
 	"strings"
 
-	"github.com/kmatt/slugifier/pkg/renamer"
-	"github.com/kmatt/slugifier/pkg/slugify"
-	"github.com/kmatt/slugifier/pkg/utils"
+	"github.com/kmatt/slugifile/pkg/renamer"
+	"github.com/kmatt/slugifile/pkg/slugify"
+	"github.com/kmatt/slugifile/pkg/utils"
 )
 
 // Get the file path from the command-line arguments
 func getPath() string {
 	// Check if at least one command-line argument is provided
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: slugifier <file-path>")
+		fmt.Println("Usage: slugifile <file-path>")
 		return ""
 	}
 

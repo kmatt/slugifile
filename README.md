@@ -4,7 +4,7 @@
 [![tests][tests-src]][tests-href]
 [![license][license-src]][license-href]
 
-Forked from https://github.com/ewilan-riviere/slugifier
+Forked from https://github.com/ewilan-riviere/slugifile
 
 A small tool, written in Go, to slugify files and directories, recursively.
 
@@ -38,13 +38,13 @@ go install github.com/kmatt/slugifile@latest
 For a directory
 
 ```bash
-slugifier path/to/dir
+slugifile path/to/dir
 ```
 
 Or for a file
 
 ```bash
-slugifier path/to/file
+slugifile path/to/file
 ```
 
 ### Options
@@ -52,13 +52,13 @@ slugifier path/to/file
 Lowercase mode to transform all characters to lowercase.
 
 ```bash
-slugifier -l path/to/dir
+slugifile -l path/to/dir
 ```
 
 Verbose mode to enable preview and confirmation before renaming.
 
 ```bash
-slugifier -v path/to/dir
+slugifile -v path/to/dir
 ```
 
 ## Build
@@ -66,13 +66,13 @@ slugifier -v path/to/dir
 Build the script.
 
 ```bash
-go build -o slugifier
+go build -o slugifile
 ```
 
-You can use `./slugifier` to run the script.
+You can use `./slugifile` to run the script.
 
 ```bash
-./slugifier path/to/dir
+./slugifile path/to/dir
 ```
 
 Or you can install it globally.

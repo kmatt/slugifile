@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kmatt/slugifier/pkg/file"
-	"github.com/kmatt/slugifier/pkg/listing"
+	"github.com/kmatt/slugifile/pkg/file"
+	"github.com/kmatt/slugifile/pkg/listing"
 )
 
 type Options struct {

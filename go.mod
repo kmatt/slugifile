@@ -1,4 +1,4 @@
-module github.com/kmatt/slugifier
+module github.com/kmatt/slugifile
 
 go 1.21
 

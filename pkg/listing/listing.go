@@ -64,7 +64,7 @@ func (l Listing) toFile(path string, isDir bool) ListingFile {
 
 	var f = ListingFile{
 		BasePath:  path,                        // `../../misc/listing/nested/La Quête d'Ewilan vol.1 D'un monde à l'autre.md`
-		Path:      absolutePath,                // `/Users/ewilan/Workspace/go_tools/slugifier/misc/listing/nested/La Quête d'Ewilan vol.1 D'un monde à l'autre.md`
+		Path:      absolutePath,                // `/Users/ewilan/Workspace/go_tools/slugifile/misc/listing/nested/La Quête d'Ewilan vol.1 D'un monde à l'autre.md`
 		Extension: filepath.Ext(absolutePath),  // `.md`
 		FileName:  filepath.Base(absolutePath), // `La Quête d'Ewilan vol.1 D'un monde à l'autre.md`
 		IsDir:     isDir,
